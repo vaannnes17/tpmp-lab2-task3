@@ -8,10 +8,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+      
     - name: Build with Make
       run: |
         make clean
         make
       
     - name: Run the program
-      run: echo -e "2\n101\n10 30\n12 45\nMoscow\nBoeing\n850\n205\n14 15\n16 20\nSochi\nAirbus\n1200\nMoscow" | ./my_program
+      run: echo -e "2\n101\n10 30\n12 45\nMoscow\nBoeing\n850\n205\n14 15\n16 20\nSochi\nAirbus\n1200\nMoscow" | ./program
